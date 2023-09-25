@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Calculator</title>
+    <script>
+        function calculate() {
+            // Get input values from the user
+            var num1 = parseFloat(document.getElementById('num1').value);
+            var num2 = parseFloat(document.getElementById('num2').value);
+            var operator = document.getElementById('operator').value;
+            
+            // Perform the selected operation
+            var result;
+
+            if (operator === '+') {
+			result = num1 + num2;
+            } else if (operator === '-') {
+                result = num1 - num2;
+            } else if (operator === '*') {
+                result = num1 * num2;
+            } else if (operator === '/') {
+                if (num2 !== 0) {
+                    result = num1 / num2;
+                } else {
+                    result = "Cannot divide by zero!";
+                }
+            } else {
+                result = "Invalid operator";
+            }
+
+            // Display the result
+            document.getElementById('result').innerHTML = "Result: " + result;
+        }
+    </script>
+</head>
+<body>
+    <h1>Simple Calculator</h1>
+    <label for="num1">Number 1:</label>
+    <input type="text" id="num1"><br><br>
+
+    <label for="operator">Operator:</label>
+    <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select><br><br>
+
+    <label for="num2">Number 2:</label>
+    <input type="text" id="num2"><br><br>
+
+    <button onclick="calculate()">Calculate</button><br><br>
+
+    <div id="result"></div>
+</body>
+</html>
